@@ -1,14 +1,33 @@
 const CACHE_NAME = 'alabanzas-cache-v1';
 const urlsToCache = [
   '/',
-  '/index.html',
+  '/Inicio.html',
+  '/Canciones.html',
+  '/Contacto.html',
+  '/Fechas.html',
+  '/Cantos.html',
+  '/Mdm.html',
+  '/Guitarra.html',
+  '/Piano.html',
   '/style.css',
   '/app.js',
   '/manifest.json',
-  '/logo-parroquia.png', // Asegúrate de que el logo esté en la ruta correcta
-  '/Contacto.html',
-  '/Canciones.html',
-  '/Fechas.html'
+  '/service-worker.js',
+  '/logo-parroquia.png',
+  '/Alabanza.png',
+  '/Fonde-de-pantalla-ppal.png',
+  '/abr25.png',
+  '/ago.png',
+  '/dic24.png',
+  '/ene25.png',
+  '/feb25.png',
+  '/jul25.png',
+  '/jun25.png',
+  '/mar25.png',
+  '/may25.png',
+  '/nov24.png',
+  '/oct25.png',
+  '/sep25.png'
 ];
 
 // Instalar el Service Worker
@@ -57,4 +76,3 @@ self.addEventListener('fetch', (event) => {
       })
   );
 });
-
