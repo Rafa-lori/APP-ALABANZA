@@ -254,5 +254,22 @@
             </div>
         </div>
     </main>
+
+    <script>
+        function showSong() {
+            // Obtén el contenedor de la canción
+            const songContainer = document.querySelector('.song-container');
+            
+            // Verifica si el contenedor está visible
+            if (songContainer.style.display === 'block') {
+                // Ocultar el contenedor si ya está visible
+                songContainer.style.display = 'none';
+            } else {
+                // Mostrar el contenedor si está oculto
+                songContainer.style.display = 'block';
+            }
+        }
+    </script>
+    
 </body>
 </html>
