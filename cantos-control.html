@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controlar Cantos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        .element-container {
+            margin-top: 20px;
+        }
+        .control {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 5px 10px;
+            font-size: 14px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button.off {
+            background-color: #FF0000;
+        }
+    </style>
+</head>
+<body>
+    <h1>CONTROLAR CANTOS</h1>
+    <div class="element-container">
+        <div class="control">
+            <span>Actúa en mí</span>
+            <button class="toggle-button" onclick="toggleVisibility('actuaenmic')">ON</button>
+        </div>
+        <div class="control">
+            <span>A Danzar</span>
+            <button class="toggle-button" onclick="toggleVisibility('adanzarc')">ON</button>
+        </div>
+        <div class="control">
+            <span>Alfarero</span>
+            <button class="toggle-button" onclick="toggleVisibility('alfareroc')">ON</button>
+        </div>
+        <div class="control">
+            <span>Con Poder</span>
+            <button class="toggle-button" onclick="toggleVisibility('conpoderc')">ON</button>
+        </div>
+        <div class="control">
+            <span>Cristo Reina</span>
+            <button class="toggle-button" onclick="toggleVisibility('cristoreinac')">ON</button>
+        </div>
+        <div class="control">
+            <span>Espíritu ven, ven</span>
+            <button class="toggle-button" onclick="toggleVisibility('espirituvenvenc')">ON</button>
+        </div>
+        <div class="control">
+            <span>Jesús Eucaristía</span>
+            <button class="toggle-button" onclick="toggleVisibility('jesuseucaristiac')">ON</button>
+        </div>
+        <div class="control">
+            <span>Milagroso</span>
+            <button class="toggle-button" onclick="toggleVisibility('milagrosoc')">ON</button>
+        </div>
+        <div class="control">
+            <span>Mi Padre me ama</span>
+            <button class="toggle-button" onclick="toggleVisibility('mipadremeamac')">ON</button>
+        </div>
+        <div class="control">
+            <span>Obra en mí</span>
+            <button class="toggle-button" onclick="toggleVisibility('obraenmic')">ON</button>
+        </div>
+        <div class="control">
+            <span>Para que entre el Rey</span>
+            <button class="toggle-button" onclick="toggleVisibility('paraqueentreelreyc')">ON</button>
+        </div>
+        <div class="control">
+            <span>Trae el Cielo Aquí</span>
+            <button class="toggle-button" onclick="toggleVisibility('traeelcieloaquic')">ON</button>
+        </div>
+        <div class="control">
+            <span>Tú el Único Rey</span>
+            <button class="toggle-button" onclick="toggleVisibility('tuelunicoreyc')">ON</button>
+        </div>
+        <div class="control">
+            <span>Tuyo es el Reino</span>
+            <button class="toggle-button" onclick="toggleVisibility('tuyoeselreinoc')">ON</button>
+        </div>
+        <div class="control">
+            <span>Ven Ahora</span>
+            <button class="toggle-button" onclick="toggleVisibility('venahorac')">ON</button>
+        </div>
+        <div class="control">
+            <span>Yahveh</span>
+            <button class="toggle-button" onclick="toggleVisibility('yahvehc')">ON</button>
+        </div>
+        <div class="control">
+            <span>Yeshuá</span>
+            <button class="toggle-button" onclick="toggleVisibility('yeshuac')">ON</button>
+        </div>
+        <div class="control">
+            <span>Caminar Contigo María</span>
+            <button class="toggle-button" onclick="toggleVisibility('caminarcontigomariac')">ON</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleVisibility(id) {
+            const button = event.target;
+            const state = button.innerText === 'ON' ? 'OFF' : 'ON';
+            button.innerText = state;
+            button.classList.toggle('off', state === 'OFF');
+
+            // Aquí puedes implementar la lógica para cambiar la visibilidad
+            console.log(`Elemento ${id} está ahora ${state}`);
+        }
+    </script>
+    <script src="control.js"></script>
+</body>
+</html>
