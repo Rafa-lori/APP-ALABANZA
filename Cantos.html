@@ -221,24 +221,24 @@
     <main class="main-content" id="Canciones">
         <h2>CANTOS</h2>
         <div class="button-grid">
-            <button class="button" onclick="showSong('actua-en-mi')">Actúa en mí</button>
-            <button class="button" onclick="showSong('a-danzar')">A Danzar</button>
-            <button class="button" onclick="showSong('alfarero')">Alfarero</button>
-            <button class="button" onclick="showSong('con-poder')">Con Poder</button>
-            <button class="button" onclick="showSong('cristo-reina')">Cristo Reina</button>
-            <button class="button" onclick="showSong('espiritu-ven')">Espíritu ven</button> 
-            <button class="button" onclick="showSong('jesus-eucaristia')">Jesús Eucaristía</button>
-            <button class="button" onclick="showSong('milagroso')">Milagroso</button>
-            <button class="button" onclick="showSong('mi-padre-me-ama')">Mi Padre me Ama</button>
-            <button class="button" onclick="showSong('obra-en-mi')">Obra en mí</button>
-            <button class="button" onclick="showSong('para-que-entre')">Para que entre el Rey</button>
-            <button class="button" onclick="showSong('trae-el-cielo-aqui')">Trae el Cielo Aquí</button>
-            <button class="button" onclick="showSong('tu-el-unico-rey')">Tú el Único Rey</button>
-            <button class="button" onclick="showSong('tuyo-es-el-reino')">Tuyo es el Reino</button>
-            <button class="button" onclick="showSong('yahveh')">Yahveh</button>
-            <button class="button" onclick="showSong('yeshua')">Yeshuá</button>
-            <button class="button" onclick="showSong('ven-ahora')">Ven ahora</button>
-            <button class="button" onclick="showSong('caminar-contigo-maria')">Caminar Contigo, María</button>
+            <button id="actuaenmibc" class="button" onclick="showSong('actua-en-mi')">Actúa en mí</button>
+            <button id="adanzarbc" class="button" onclick="showSong('a-danzar')">A Danzar</button>
+            <button id="alfarerobc" class="button" onclick="showSong('alfarero')">Alfarero</button>
+            <button id="conpoderbc" class="button" onclick="showSong('con-poder')">Con Poder</button>
+            <button id="cristoreinabc" class="button" onclick="showSong('cristo-reina')">Cristo Reina</button>
+            <button id="espirituvenvenbc" class="button" onclick="showSong('espiritu-ven')">Espíritu ven</button> 
+            <button id="jesuseucaristiabc" class="button" onclick="showSong('jesus-eucaristia')">Jesús Eucaristía</button>
+            <button id="milagrosobc" class="button" onclick="showSong('milagroso')">Milagroso</button>
+            <button id="mipadremeamabc" class="button" onclick="showSong('mi-padre-me-ama')">Mi Padre me Ama</button>
+            <button id="obraenmibc" class="button" onclick="showSong('obra-en-mi')">Obra en mí</button>
+            <button id="paraqueentreelreybc" class="button" onclick="showSong('para-que-entre')">Para que entre el Rey</button>
+            <button id="traeelcieloaquibc" class="button" onclick="showSong('trae-el-cielo-aqui')">Trae el Cielo Aquí</button>
+            <button id="tuelunicoreybc" class="button" onclick="showSong('tu-el-unico-rey')">Tú el Único Rey</button>
+            <button id="tuyoeselreinobc" class="button" onclick="showSong('tuyo-es-el-reino')">Tuyo es el Reino</button>
+            <button id="yahvehbc" class="button" onclick="showSong('yahveh')">Yahveh</button>
+            <button id="yeshuabc" class="button" onclick="showSong('yeshua')">Yeshuá</button>
+            <button id="venahorabc" class="button" onclick="showSong('ven-ahora')">Ven ahora</button>
+            <button id="caminarcontigomariabc" class="button" onclick="showSong('caminar-contigo-maria')">Caminar Contigo, María</button>
         </div>
     </main>
 
@@ -642,6 +642,42 @@
 
             document.body.innerHTML = songs[song]; // Cambia el contenido de la página a la canción seleccionada
         }
+    </script>
+    <script>
+        import { db } from "./firebase-config.js";
+        import { ref, onValue } from "firebase/database";
+
+        function syncButtonState(buttonId, elementId) {
+           const buttonRef = ref(db, `buttons/${buttonId}`);
+           const buttonElement = document.getElementById(elementId);
+
+         // Sincroniza el estado de visibilidad
+        onValue(buttonRef, (snapshot) => {
+           const isVisible = snapshot.val();
+           buttonElement.style.display = isVisible ? 'block' : 'none';
+        });
+        }
+
+         // Llama esta función para cada botón
+         syncButtonState('actuaenmic', 'actuaenmibc');
+         syncButtonState('adanzarc', 'adanzarbc');
+         syncButtonState('alfareroc', 'alfarerobc');
+         syncButtonState('conpoderc', 'conpoderbc');
+         syncButtonState('cristoreinac', 'cristoreinabc');
+         syncButtonState('espirituvenvenc', 'espirituvenvenbc');
+         syncButtonState('jesuseucaristiac', 'jesuseucaristiabc');
+         syncButtonState('milagrosoc', 'milagrosobc');
+         syncButtonState('mipadremeamac', 'mipadremeamabc');
+         syncButtonState('obraenmic', 'obraenmibc');
+         syncButtonState('paraqueentreelreyc', 'paraqueentreelreybc');
+         syncButtonState('traeelcieloaquic', 'traeelcieloaquibc');
+         syncButtonState('tuelunicoreyc', 'tuelunicoreybc');
+         syncButtonState('tuyoeselreinoc', 'tuyoeselreinobc');
+         syncButtonState('venahorac', 'venahorabc');
+         syncButtonState('yahvehc', 'yahvehbc');
+         syncButtonState('yeshuac', 'yeshuabc');
+         syncButtonState('caminarcontigomariac', 'caminarcontigomariabc');
+         // Repite para todos los botones
     </script>
 </body>
 </html>

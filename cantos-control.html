@@ -9,9 +9,11 @@
             font-family: Arial, sans-serif;
             padding: 20px;
             text-align: center;
+            color: #ffffff;
+            background-color: #363434;
         }
         h1 {
-            color: #333;
+            color: #ffffff;
         }
         .element-container {
             margin-top: 20px;
@@ -22,13 +24,14 @@
             align-items: center;
             margin: 10px 0;
             padding: 10px;
-            border: 1px solid #ccc;
+            border: 1px solid #7e7d7d;
             border-radius: 5px;
         }
         button {
+            margin: 10px;
             padding: 5px 10px;
             font-size: 14px;
-            background-color: #007BFF;
+            background-color: #595a5b;
             color: white;
             border: none;
             border-radius: 5px;
@@ -37,96 +40,82 @@
         button.off {
             background-color: #FF0000;
         }
+
+         /* Media query para pantallas más pequeñas (móviles) */
+         @media (max-width: 768px) {
+        body {
+            font-size: 14px; /* Cambia el tamaño de la fuente en pantallas pequeñas */
+            background-color: #ffffff; /* Cambia el fondo */
+        }
+
+        /* Otros estilos específicos para móviles */
+        header {
+            padding: 10px;
+        }
+        }
+
+        /* Media query para pantallas muy pequeñas (dispositivos pequeños o móviles en vertical) */
+        @media (max-width: 480px) {
+        body {
+            font-size: 12px; /* Cambia aún más el tamaño de la fuente en pantallas muy pequeñas */
+        }
+        .button-grid {
+            grid-template-columns: 1fr; /* Cambia a una sola columna en pantallas muy pequeñas */
+            gap: 10px;
+        }
+        }
+
+        @media (min-width: 768px) {
+            .menu {
+                display: block; /* El menú se muestra en pantallas grandes */
+                float: right;
+            }
+
+            .button-grid {
+                grid-template-columns: repeat(2, 1fr); /* Dos botones por fila en pantallas medianas */
+                gap: 10px;
+            }
+
+        }
     </style>
 </head>
 <body>
     <h1>CONTROLAR CANTOS</h1>
     <div class="element-container">
-        <div class="control">
-            <span>Actúa en mí</span>
-            <button class="toggle-button" onclick="toggleVisibility('actuaenmic')">ON</button>
-        </div>
-        <div class="control">
-            <span>A Danzar</span>
-            <button class="toggle-button" onclick="toggleVisibility('adanzarc')">ON</button>
-        </div>
-        <div class="control">
-            <span>Alfarero</span>
-            <button class="toggle-button" onclick="toggleVisibility('alfareroc')">ON</button>
-        </div>
-        <div class="control">
-            <span>Con Poder</span>
-            <button class="toggle-button" onclick="toggleVisibility('conpoderc')">ON</button>
-        </div>
-        <div class="control">
-            <span>Cristo Reina</span>
-            <button class="toggle-button" onclick="toggleVisibility('cristoreinac')">ON</button>
-        </div>
-        <div class="control">
-            <span>Espíritu ven, ven</span>
-            <button class="toggle-button" onclick="toggleVisibility('espirituvenvenc')">ON</button>
-        </div>
-        <div class="control">
-            <span>Jesús Eucaristía</span>
-            <button class="toggle-button" onclick="toggleVisibility('jesuseucaristiac')">ON</button>
-        </div>
-        <div class="control">
-            <span>Milagroso</span>
-            <button class="toggle-button" onclick="toggleVisibility('milagrosoc')">ON</button>
-        </div>
-        <div class="control">
-            <span>Mi Padre me ama</span>
-            <button class="toggle-button" onclick="toggleVisibility('mipadremeamac')">ON</button>
-        </div>
-        <div class="control">
-            <span>Obra en mí</span>
-            <button class="toggle-button" onclick="toggleVisibility('obraenmic')">ON</button>
-        </div>
-        <div class="control">
-            <span>Para que entre el Rey</span>
-            <button class="toggle-button" onclick="toggleVisibility('paraqueentreelreyc')">ON</button>
-        </div>
-        <div class="control">
-            <span>Trae el Cielo Aquí</span>
-            <button class="toggle-button" onclick="toggleVisibility('traeelcieloaquic')">ON</button>
-        </div>
-        <div class="control">
-            <span>Tú el Único Rey</span>
-            <button class="toggle-button" onclick="toggleVisibility('tuelunicoreyc')">ON</button>
-        </div>
-        <div class="control">
-            <span>Tuyo es el Reino</span>
-            <button class="toggle-button" onclick="toggleVisibility('tuyoeselreinoc')">ON</button>
-        </div>
-        <div class="control">
-            <span>Ven Ahora</span>
-            <button class="toggle-button" onclick="toggleVisibility('venahorac')">ON</button>
-        </div>
-        <div class="control">
-            <span>Yahveh</span>
-            <button class="toggle-button" onclick="toggleVisibility('yahvehc')">ON</button>
-        </div>
-        <div class="control">
-            <span>Yeshuá</span>
-            <button class="toggle-button" onclick="toggleVisibility('yeshuac')">ON</button>
-        </div>
-        <div class="control">
-            <span>Caminar Contigo María</span>
-            <button class="toggle-button" onclick="toggleVisibility('caminarcontigomariac')">ON</button>
-        </div>
+        <button onclick="toggleButtonVisibility('actuaenmic')">Actúa en mí</button>
+        <button onclick="toggleButtonVisibility('adanzarc')">A Danzar</button>
+        <button onclick="toggleButtonVisibility('alfareroc')">Alfarero</button>
+        <button onclick="toggleButtonVisibility('conpoderc')">Con Poder</button>
+        <button onclick="toggleButtonVisibility('cristoreinac')">Cristo Reina</button>
+        <button onclick="toggleButtonVisibility('espirituvenvenc')">Espíritu ven, ven</button>
+        <button onclick="toggleButtonVisibility('jesuseucaristiac')">Jesús Eucaristía</button>
+        <button onclick="toggleButtonVisibility('milagrosoc')">Milagroso</button>
+        <button onclick="toggleButtonVisibility('mipadremeamac')">Mi Padre me ama</button>
+        <button onclick="toggleButtonVisibility('obraenmic')">Obra en mí</button>
+        <button onclick="toggleButtonVisibility('paraqueentreelreyc')">Para que entre el Rey</button>
+        <button onclick="toggleButtonVisibility('traeelcieloaquic')">Trae el Cielo Aquí</button>
+        <button onclick="toggleButtonVisibility('tuelunicoreyc')">Tú el Único Rey</button>
+        <button onclick="toggleButtonVisibility('tuyoeselreinoc')">Tuyo es el Reino</button>
+        <button onclick="toggleButtonVisibility('venahorac')">Ven Ahora</button>
+        <button onclick="toggleButtonVisibility('yahvehc')">Yahveh</button>
+        <button onclick="toggleButtonVisibility('yeshuac')">Yeshuá</button>
+        <button onclick="toggleButtonVisibility('caminarcontigomariac')">Caminar contigo María</button>
+        <!-- Repite para los 18 botones -->
     </div>
 
     <script>
-        function toggleVisibility(id) {
-            const button = event.target;
-            const state = button.innerText === 'ON' ? 'OFF' : 'ON';
-            button.innerText = state;
-            button.classList.toggle('off', state === 'OFF');
+       import { db } from "./firebase-config.js";
+       import { ref, set, onValue } from "firebase/database";
 
-            // Aquí puedes implementar la lógica para cambiar la visibilidad
-            console.log(`Elemento ${id} está ahora ${state}`);
-        }
+     function toggleButtonVisibility(buttonId) {
+        const buttonRef = ref(db, `buttons/${buttonId}`);
+    
+        // Cambiar el estado del botón
+        onValue(buttonRef, (snapshot) => {
+            const currentState = snapshot.val();
+            set(buttonRef, !currentState); // Cambia de visible a oculto o viceversa
+        });
+    }
     </script>
-    <script src="control.js"></script>
 </body>
 </html>
