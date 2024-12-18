@@ -221,24 +221,24 @@
     <main class="main-content" id="Canciones">
         <h2>CANTOS</h2>
         <div class="button-grid">
-            <button id="actuaenmibc" class="button" onclick="showSong('actua-en-mi')">Actúa en mí</button>
-            <button id="adanzarbc" class="button" onclick="showSong('a-danzar')">A Danzar</button>
-            <button id="alfarerobc" class="button" onclick="showSong('alfarero')">Alfarero</button>
-            <button id="conpoderbc" class="button" onclick="showSong('con-poder')">Con Poder</button>
-            <button id="cristoreinabc" class="button" onclick="showSong('cristo-reina')">Cristo Reina</button>
-            <button id="espirituvenvenbc" class="button" onclick="showSong('espiritu-ven')">Espíritu ven</button> 
-            <button id="jesuseucaristiabc" class="button" onclick="showSong('jesus-eucaristia')">Jesús Eucaristía</button>
-            <button id="milagrosobc" class="button" onclick="showSong('milagroso')">Milagroso</button>
-            <button id="mipadremeamabc" class="button" onclick="showSong('mi-padre-me-ama')">Mi Padre me Ama</button>
-            <button id="obraenmibc" class="button" onclick="showSong('obra-en-mi')">Obra en mí</button>
-            <button id="paraqueentreelreybc" class="button" onclick="showSong('para-que-entre')">Para que entre el Rey</button>
-            <button id="traeelcieloaquibc" class="button" onclick="showSong('trae-el-cielo-aqui')">Trae el Cielo Aquí</button>
-            <button id="tuelunicoreybc" class="button" onclick="showSong('tu-el-unico-rey')">Tú el Único Rey</button>
-            <button id="tuyoeselreinobc" class="button" onclick="showSong('tuyo-es-el-reino')">Tuyo es el Reino</button>
-            <button id="yahvehbc" class="button" onclick="showSong('yahveh')">Yahveh</button>
-            <button id="yeshuabc" class="button" onclick="showSong('yeshua')">Yeshuá</button>
-            <button id="venahorabc" class="button" onclick="showSong('ven-ahora')">Ven ahora</button>
-            <button id="caminarcontigomariabc" class="button" onclick="showSong('caminar-contigo-maria')">Caminar Contigo, María</button>
+            <button class="button" id="actuaenmibc" onclick="showSong('actua-en-mi')">Actúa en mí</button>
+            <button class="button" id="adanzarbc" onclick="showSong('a-danzar')">A Danzar</button>
+            <button class="button" id="alfarerobc" onclick="showSong('alfarero')">Alfarero</button>
+            <button class="button" id="conpoderbc"  onclick="showSong('con-poder')">Con Poder</button>
+            <button class="button" id="cristoreinabc" onclick="showSong('cristo-reina')">Cristo Reina</button>
+            <button class="button" id="espirituvenvenbc" onclick="showSong('espiritu-ven')">Espíritu ven</button> 
+            <button class="button" id="jesuseucaristiabc" onclick="showSong('jesus-eucaristia')">Jesús Eucaristía</button>
+            <button class="button" id="milagrosobc" onclick="showSong('milagroso')">Milagroso</button>
+            <button class="button" id="mipadremeamabc" onclick="showSong('mi-padre-me-ama')">Mi Padre me Ama</button>
+            <button class="button" id="obraenmibc" onclick="showSong('obra-en-mi')">Obra en mí</button>
+            <button class="button" id="paraqueentreelreybc" onclick="showSong('para-que-entre')">Para que entre el Rey</button>
+            <button class="button" id="traeelcieloaquibc" onclick="showSong('trae-el-cielo-aqui')">Trae el Cielo Aquí</button>
+            <button class="button" id="tuelunicoreybc" onclick="showSong('tu-el-unico-rey')">Tú el Único Rey</button>
+            <button class="button" id="tuyoeselreinobc" onclick="showSong('tuyo-es-el-reino')">Tuyo es el Reino</button>
+            <button class="button" id="yahvehbc" onclick="showSong('yahveh')">Yahveh</button>
+            <button class="button" id="yeshuabc" onclick="showSong('yeshua')">Yeshuá</button>
+            <button class="button" id="venahorabc" onclick="showSong('ven-ahora')">Ven ahora</button>
+            <button class="button" id="caminarcontigomariabc" onclick="showSong('caminar-contigo-maria')">Caminar Contigo, María</button>
         </div>
     </main>
 
@@ -650,6 +650,21 @@
         function syncButtonState(buttonId, elementId) {
            const buttonRef = ref(db, `buttons/${buttonId}`);
            const buttonElement = document.getElementById(elementId);
+
+           document.addEventListener("DOMContentLoaded", () => {
+        const buttons = document.querySelectorAll('.button');
+
+        buttons.forEach(button => {
+            const buttonId = button.id; // El ID del botón debe coincidir con Firebase
+            const buttonRef = ref(db, `buttons/${buttonId}`);
+
+            // Sincronizar estado en tiempo real
+            onValue(buttonRef, (snapshot) => {
+                const isVisible = snapshot.val();
+                button.style.display = isVisible ? "flex" : "none";
+            });
+        });
+    });
 
          // Sincroniza el estado de visibilidad
         onValue(buttonRef, (snapshot) => {
