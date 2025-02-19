@@ -76,3 +76,13 @@ self.addEventListener('fetch', (event) => {
       })
   );
 });
+
+setInterval(() => {
+  fetch(window.location.href)
+    .then(response => {
+      if (!response.ok) {
+        window.location.reload(); // Recarga si hay un problema
+      }
+    })
+    .catch(() => window.location.reload());
+}, 60000); // Verifica cada minuto
